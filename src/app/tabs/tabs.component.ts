@@ -24,6 +24,10 @@ export class TabsComponent implements OnInit {
   onChoose(tabName: string) {
     this.activeList = tabName;
   }
+  onSideChangedRoot(charInfo) {
+    const charToChange = this.characters.find((c) => c.name === charInfo.name);
+    charToChange.side = charInfo.side;
+  }
 }
 
 // let tab = new TabsComponent();

@@ -1,7 +1,7 @@
 <a href="#" class="list-group-item list-group-item-action" aria-current="true">
   <div>
     <h5 class="mb-1 list-group-item-heading">{{ character.name }}</h5>
-    <button class="btn-primary">Light</button>
-    <button class="btn-danger">Dark</button>
+    <button (click)="onAssign('light')" class="btn-primary">Light</button>
+    <button (click)="onAssign('dark')" class="btn-danger">Dark</button>
   </div>
 </a>

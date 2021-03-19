@@ -4,7 +4,7 @@
       <a
         (click)="onChoose('all')"
         class="nav-link"
-        aria-current="page"
+        [ngClass]="activeList === 'all' && 'active'"
         style="cursor: pointer"
         >All</a
       >
@@ -13,7 +13,7 @@
       <a
         (click)="onChoose('light')"
         class="nav-link"
-        aria-current="page"
+        [ngClass]="activeList === 'light' && 'active'"
         style="cursor: pointer"
         >Light</a
       >
@@ -22,11 +22,14 @@
       <a
         (click)="onChoose('dark')"
         class="nav-link"
-        aria-current="page"
+        [ngClass]="activeList === 'dark' && 'active'"
         style="cursor: pointer"
         >Dark</a
       >
     </li>
   </ul>
-  <app-list [characters]="getCharacters()"></app-list>
+  <app-list
+    (sideChangedList)="onSideChangedRoot($event)"
+    [characters]="getCharacters()"
+  ></app-list>
 </div>
