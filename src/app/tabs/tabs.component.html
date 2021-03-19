@@ -28,8 +28,5 @@
       >
     </li>
   </ul>
-  <app-list
-    (sideChangedList)="onSideChangedRoot($event)"
-    [characters]="getCharacters()"
-  ></app-list>
+  <app-list [characters]="getCharacters()"></app-list>
 </div>
