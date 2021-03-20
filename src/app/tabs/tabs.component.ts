@@ -7,21 +7,7 @@ import { StarWarsService } from '../star-wars.service';
   styleUrls: ['./tabs.component.css'],
 })
 export class TabsComponent implements OnInit {
-  characters = [];
-  activeList = 'all';
-
-  constructor(private swService: StarWarsService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  getCharacters() {
-    this.characters = this.swService.getCharacters(this.activeList);
-    return this.characters;
-  }
-
-  onChoose(tabName: string) {
-    this.activeList = tabName;
-  }
 }
-
-// let tab = new TabsComponent();

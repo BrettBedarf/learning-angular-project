@@ -22,7 +22,7 @@ export class StarWarsService {
     const charToChange = this.characters.find((c) => c.name === charInfo.name);
     charToChange.side = charInfo.side;
     this.logService.writeLog(
-      `Changed side of${charInfo.name} to ${charInfo.side}`
+      `Changed side of ${charInfo.name} to ${charInfo.side}`
     );
   }
 

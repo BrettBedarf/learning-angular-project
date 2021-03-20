@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StarWarsService } from '../star-wars.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StarWarsService } from '../star-wars.service';
 export class ItemComponent implements OnInit {
   @Input() character;
 
-  constructor(private swService: StarWarsService) {}
+  constructor(private swService: StarWarsService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -18,5 +19,9 @@ export class ItemComponent implements OnInit {
     // this.character.side = side;
 
     this.swService.onSideChanged({ name: this.character.name, side: side });
+    const currentUrl = this.router.url;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([currentUrl]);
   }
 }
